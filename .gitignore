@@ -1,0 +1,31 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+*.tgz
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.*
+
+# Editor config
+.vscode/
+.idea/
+.DS_Store
+
+# Jest cache
+jest.config.js
+.eslintcache
+
+# OS-specific
+Thumbs.db
+.DS_Store
