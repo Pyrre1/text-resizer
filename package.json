@@ -1,7 +1,7 @@
 {
   "name": "text-resizer",
   "version": "1.0.0",
-  "description": "A text-resize tool that can increase or decrease text",
+  "description": "A text-resize tool that can increase or decrease text size",
   "main": "index.js",
   "type": "module",
   "scripts": {
