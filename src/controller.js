@@ -1,5 +1,5 @@
 import { getTargetElements } from './dom.js'
-import { computeIncreasedSize } from './resizer.js'
+import { computeAdjustedSize } from './resizer.js'
 
 export function createTextResizerController(config) {
   const {
@@ -19,18 +19,45 @@ export function createTextResizerController(config) {
     originalSizes.set(element, originalSize)
   })
 
+  const parsedStep = validateStep(step)
+
   // The increase text size by one step function.
   function increase() {
     elements.forEach(element => {
       const currentSize = parseFloat(window.getComputedStyle(element).fontSize)
-      const newSize = computeIncreasedSize(currentSize, step)
+      const newSize = computeAdjustedSize(currentSize, parsedStep)
 
       const clampedSize = Math.min(newSize, maxSize)
       element.style.fontSize= `${clampedSize}px`
     })
   }
 
+  // The decrease text size by one step function.
+  function decrease() {
+    elements.forEach(element => {
+      const currentSize = parseFloat(window.getComputedStyle(element).fontSize)
+      const newSize = computeAdjustedSize(currentSize, -parsedStep)
+
+      const clampedSize = Math.max(newSize, minSize)
+      element.style.fontSize= `${clampedSize}px`
+    })
+  }
+
   return {
-    increase
+    increase,
+    decrease
+  }
+
+
+  // Parsing of step to be able to use it as a integer regardless of if 'px' is added.
+  function validateStep(step) {
+    if (typeof step === 'number') return step
+
+    const match = step.match(/^(\d+)px$/)
+    if (match) return parseInt(match[1], 10)
+
+    // Changed to console.warn from new Error after lecture.
+    console.warn(`Invalid step format: "${step}". Defaulting to 2px.`)
+    return 2
   }
 }

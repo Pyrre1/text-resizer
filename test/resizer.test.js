@@ -1,9 +1,13 @@
-import { computeIncreasedSize } from '../src/resizer.js'
+import { computeAdjustedSize } from '../src/resizer.js'
 import { createTextResizerController } from '../src/controller.js'
 
 // Test if the computed size to increase to is calculated correctly.
 test('increases size by one step', () => {
-  expect(computeIncreasedSize(14, 2)).toBe(16)
+  expect(computeAdjustedSize(14, 2)).toBe(16)
+})
+// Test if the computed size to decrease to is calculated correctly.
+test('decreases size by one step', () => {
+  expect(computeAdjustedSize(14, -2)).toBe(12)
 })
 
 // Test the increase() function to add right amount of pixels.
