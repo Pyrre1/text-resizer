@@ -115,6 +115,21 @@ describe('Text Resizer - min and max', () => {
     expect(newSize).toBe('40px')
   })
 
+  test('should set text size to max even if other manipulation has been done prior', () => {
+    const resizer = createTextResizerController({
+      selectors: ['#test'],
+      step: 2,
+      minSize: 8,
+      maxSize: 40
+    })
+
+    resizer.decrease()
+    resizer.setTextToMax()
+
+    const newSize = window.getComputedStyle(p).fontSize
+    expect(newSize).toBe('40px')
+  })
+
   test('should set text size to min regardless of initial size', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
