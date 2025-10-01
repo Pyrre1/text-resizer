@@ -233,3 +233,28 @@ describe('Text Resizer - target elements, class and id ', () => {
     expect(window.getComputedStyle(div).fontSize).toBe('18px')
   })
 })
+
+describe('Text Resizer - font styling', () => {
+  let p
+
+  beforeEach(() => {
+    document.body.innerHTML = `<p id="test">Hello</p>`
+    p = document.getElementById('test')
+    p.style.fontSize = '14px'
+  })
+
+  test('should toggle between serif and sans-serif', () => {
+    const resizer = createTextResizerController({ selectors: ['#test'] })
+    resizer.changeFont()
+    expect(p.style.fontFamily).toBe('serif')
+    resizer.changeFont()
+    expect(p.style.fontFamily).toBe('sans-serif')
+  })
+
+  test('should restore original font style', () => {
+    const resizer = createTextResizerController({ selectors: ['#test'] })
+    resizer.changeFont()
+    resizer.restoreFont()
+    expect(p.style.fontFamily).toBe('')
+  })
+})

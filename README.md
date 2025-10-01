@@ -1,6 +1,8 @@
 # text-resizer
 
 ## General information
+This is a student project and future improvements can't be expected. Feel free to contribute or copy for other projects. 
+MIT license applies.
 
 ## Purpose
 A JavaScript module designed to make text more accessible.
