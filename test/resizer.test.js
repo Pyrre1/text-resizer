@@ -20,7 +20,7 @@ describe('Text Resizer - increase()', () => {
     p.style.fontSize = '12px'
   })
 
-  test('should increase text size from 12px to 14px', () => {
+  test('Text Resizer - increase control', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -33,7 +33,7 @@ describe('Text Resizer - increase()', () => {
     expect(newSize).toBe('14px')
   })
 
-  test('should not increase text size beyond maxSize', () => {
+  test('Text Resizer - increase at max', () => {
     p.style.fontSize = '40px' // max value
 
     const resizer = createTextResizerController({
@@ -60,7 +60,7 @@ describe('Text Resizer - decrease()', () => {
     p.style.fontSize = '12px'
   })
 
-  test('should decrease text size from 12px to 10px', () => {
+  test('Text Resizer - decrease control', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -73,7 +73,7 @@ describe('Text Resizer - decrease()', () => {
     expect(newSize).toBe('10px')
   })
 
-  test('should not decrease text size beyond minSize', () => {
+  test('Text Resizer - decrease at min', () => {
     p.style.fontSize = '8px' // min value
 
     const resizer = createTextResizerController({
@@ -101,7 +101,7 @@ describe('Text Resizer - min and max', () => {
     p.style.fontSize = '12px'
   })
 
-  test('should set text size to max regardless of initial size', () => {
+  test('Text Resizer - set text size to max', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -115,7 +115,7 @@ describe('Text Resizer - min and max', () => {
     expect(newSize).toBe('40px')
   })
 
-  test('should set text size to max even if other manipulation has been done prior', () => {
+  test('Text Resizer - set text size to max after other manipulations', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -130,7 +130,7 @@ describe('Text Resizer - min and max', () => {
     expect(newSize).toBe('40px')
   })
 
-  test('should set text size to min regardless of initial size', () => {
+  test('Text Resizer - set text size to min', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -154,7 +154,7 @@ describe('Text Resizer - restore()', () => {
     p = document.getElementById('test')
     p.style.fontSize = '12px'
   })
-  test('should restore original size after increases and/or decreases', () => {
+  test('Text Resizer - restore original size', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 2,
@@ -186,7 +186,7 @@ describe('Text Resizer - miltiple id:s ', () => {
     p.style.fontSize = '12px'
   })
 
-  test('should increase text size for both h1 and p to different values', () => {
+  test('Text Resizer - increase text size for multiple elements', () => {
     const resizer = createTextResizerController({
       selectors: ['#testH1', '#testP'],
       step: 2,
@@ -219,7 +219,7 @@ describe('Text Resizer - target elements, class and id ', () => {
     div.style.fontSize = '16px'
   })
 
-  test('should increase text size for both h1 and p to different values', () => {
+  test('Text Resizer - increase with multiple selectors (id, class, element)', () => {
     const resizer = createTextResizerController({
       selectors: ['.testH1', 'p', '#textArea'],
       step: 2,
@@ -243,7 +243,7 @@ describe('Text Resizer - font styling', () => {
     p.style.fontSize = '14px'
   })
 
-  test('should toggle between serif and sans-serif', () => {
+  test('Text Resizer - toggle between serif and sans-serif', () => {
     const resizer = createTextResizerController({ selectors: ['#test'] })
     resizer.changeFont()
     expect(p.style.fontFamily).toBe('serif')
@@ -251,7 +251,7 @@ describe('Text Resizer - font styling', () => {
     expect(p.style.fontFamily).toBe('sans-serif')
   })
 
-  test('should restore original font style', () => {
+  test('Text Resizer - restore original font style', () => {
     const resizer = createTextResizerController({ selectors: ['#test'] })
     resizer.changeFont()
     resizer.restoreFont()

@@ -20,7 +20,7 @@ describe('Text Resizer - increase() -different units', () => {
     div.style.fontSize = '16%'
   })
 
-  test('should convert all units to pixels, and add 2px to each element', () => {
+  test('Text Resizer - convert multiple units to uniform unit (pixels)', () => {
     const resizer = createTextResizerController({
       selectors: ['#test', '#header', '#test2'],
       step: 2,
@@ -34,7 +34,7 @@ describe('Text Resizer - increase() -different units', () => {
   })
 })
 
-describe('Text Resizer - increase() - em unit and em step', () => { 
+describe('Text Resizer - increase() - relative units and relative step', () => {
   let p
 
   beforeEach(() => {
@@ -43,7 +43,7 @@ describe('Text Resizer - increase() - em unit and em step', () => {
     p.style.fontSize = '1.2em'
   })
 
-  test('should increase text size from 1.2em to 1.4em', () => {
+  test('Text Resizer - increase text size  relative units (em)', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '0.2em',
@@ -57,7 +57,7 @@ describe('Text Resizer - increase() - em unit and em step', () => {
     expect(newPixelSize).toBeGreaterThan(beforePixelSize)
   })
 
-  test('should not break due to , instead of .', () => {
+  test('Text Resizer - convert comma as decimal', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '0,2em',
@@ -71,7 +71,7 @@ describe('Text Resizer - increase() - em unit and em step', () => {
     expect(newPixelSize).toBeGreaterThan(beforePixelSize)
   })
 
-  test('should handle step "out of bounds" for relative units calculate step from assumed px step value', () => {
+  test('Text Resizer - handle step "out of bounds" for relative units', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '2',
@@ -86,7 +86,7 @@ describe('Text Resizer - increase() - em unit and em step', () => {
   })
 })
 
-describe('should handle step "out of bounds" for px defaulting to 2px', () => {
+describe('Text Resizer - handle step "out of bounds" for px defaulting to 2px', () => {
   let p
 
   beforeEach(() => {
@@ -95,7 +95,7 @@ describe('should handle step "out of bounds" for px defaulting to 2px', () => {
     p.style.fontSize = '12px'
   })
 
-  test('should set default value for step to 2px if < 1', () => {
+  test('Text Resizer - set default value for step to 2px if step < 1', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 0.2,
@@ -108,10 +108,10 @@ describe('should handle step "out of bounds" for px defaulting to 2px', () => {
     expect(newSize).toBe('14px')
   })
 
-  test('should set default value for step to 2px if < 1, even if written as 0,2', () => {
+  test('Text Resizer - set default value for step to 2px if < 1, even if written as decimal', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
-      step: '0,2',
+      step: '0.2',
       maxSize: 40
     })
 
