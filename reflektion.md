@@ -38,5 +38,14 @@ hade jag skrivit mer som jag tidigare tänkt skulle exempelvis (step, unit, valu
 Jag gick in med ett mindset av att kod ska vara liten och effektiv, men inser absolut tjusningen i att skriva tydlig kod som är lätt att följa nu, för att senare kunna sätta sig in i koden. Trots försök att göra koden tydlig förstår jag att det fortfarande kommer kännas som en röra för en oinsatt programmerare att försöka se mina tankebanor och uppgiften har gett mer respekt åt konsten att skriva lätt, tydlig och överblickbar kod.
 Främsta exemplet på lärdom som dessutom går att slipa ännu mer är den flera gånger omskrivna computeAdjustedSize().
 
+## Reflektion över egen kodkvalitet.
+Sittandes med sista putsar såg jag brister i koden som jag får ta och åtgära vid ett annat tillfälle, vilket dessutom skulle göra koden mer läsbar och flyta på bättre. 
 
-Sittandes med sista putsar såg jag brister i koden som jag får ta och åtgära vid ett annat tillfälle, vilket dessutom skulle göra koden mer läsbar och flyta på bättre. restoreFont() behöver byggas om men tiden saknas just nu.
+Att gå från att tänka på kod som något som bara matas ut och är OK så länge den uppfyller önskad uppgift till att se att koden själv har en underliggande funktion - att läsas av migsjälv i framtiden eller andra som arbetar på samma projekt.
+
+Jag har nog främst sett på kod som en engångslösning och med en allt för hög tilltro till migsjälv tänkt att "Självklar kan jag lösa detta så bra att det inte kommer behöva kompletteras, jag får bara se till att skriva den så komlpex och komplett som det bara går så kommer den klara allt"
+Oj så fel det går att ha... Bara under denna uppgiften och främst efter senaste workshopen insåg jag hur extremt blottad man är i skriven kod. Du kan inte försöka säga att "jag kom på den främsta lösningen, alla kommer förstå" eller anta att andra kommer komma fram till samma lösning.
+
+Lite "Lagt kort ligger" - Skriven kod är skriven, men koden slutar ju inte där. Mågon annan ska förhoppningsvi använda det som skapas, och då kommer framtida nya bekymmer upptäckas, fler användare kanske testar funktioner som inte var tänkta att åstakomma med koden och den kommer behöva lappas och lagas.
+
+Jag har nog historisk sett haft en för stor tilltro till "jag tar det sen" och "jag kommer komma ihåg X". Efter denna kurs känns det mer som att det kommer bli en utmaning i att veta när en bit kod kan anses klar och tydlig nog, inte att bli klar så snabbt som möjligt.
