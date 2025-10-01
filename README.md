@@ -23,6 +23,10 @@ Tested with jest and documented in `testrapport.md`
 
 ## Installation
 
+Fallback:
+https://github.com/Pyrre1/text-resizer - clone 
+
+(pending)
 ```bash
 npm install text-resizer
 ```
