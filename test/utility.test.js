@@ -27,10 +27,16 @@ describe('Utility test - increase() -different units', () => {
       maxSize: 40
     })
 
+    const headerSizeBefore = parseFloat(window.getComputedStyle(h1).fontSize)
+    const divSizeBefore = parseFloat(window.getComputedStyle(div).fontSize)
     resizer.increase()
+    const headerSizeAfter = parseFloat(window.getComputedStyle(h1).fontSize)
+    const divSizeAfter = parseFloat(window.getComputedStyle(div).fontSize)
 
     const newSize = window.getComputedStyle(p).fontSize
     expect(newSize).toBe('14px')
+    expect(headerSizeAfter).toBeGreaterThan(headerSizeBefore)
+    expect(divSizeAfter).toBeGreaterThan(divSizeBefore)
   })
 })
 
@@ -50,11 +56,9 @@ describe('Utility test - increase() - relative units and relative step', () => {
       maxSize: '4em'
     })
 
-    const beforePixelSize = parseFloat(window.getComputedStyle(p).fontSize)
     resizer.increase()
-    const newPixelSize = parseFloat(window.getComputedStyle(p).fontSize)
 
-    expect(newPixelSize).toBeGreaterThan(beforePixelSize)
+    expect(p.style.fontSize).toBe('1.4em')
   })
 
   test('Utility test - convert comma as decimal', () => {
@@ -64,11 +68,9 @@ describe('Utility test - increase() - relative units and relative step', () => {
       maxSize: '4em'
     })
 
-    const beforePixelSize = parseFloat(window.getComputedStyle(p).fontSize)
     resizer.increase()
-    const newPixelSize = parseFloat(window.getComputedStyle(p).fontSize)
 
-    expect(newPixelSize).toBeGreaterThan(beforePixelSize)
+    expect(p.style.fontSize).toBe('1.4em')
   })
 
   test('Utility test - handle step "out of bounds" for relative units', () => {
