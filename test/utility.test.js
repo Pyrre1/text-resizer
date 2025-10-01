@@ -2,7 +2,7 @@ import { createTextResizerController } from '../src/controller.js'
 
 
 // Test the increase() function to add right amount of pixels.
-describe('Text Resizer - increase() -different units', () => {
+describe('Utility test - increase() -different units', () => {
   let p
   let h1
   let div
@@ -20,7 +20,7 @@ describe('Text Resizer - increase() -different units', () => {
     div.style.fontSize = '16%'
   })
 
-  test('Text Resizer - convert multiple units to uniform unit (pixels)', () => {
+  test('Utility test - convert multiple units to uniform unit (pixels)', () => {
     const resizer = createTextResizerController({
       selectors: ['#test', '#header', '#test2'],
       step: 2,
@@ -34,7 +34,7 @@ describe('Text Resizer - increase() -different units', () => {
   })
 })
 
-describe('Text Resizer - increase() - relative units and relative step', () => {
+describe('Utility test - increase() - relative units and relative step', () => {
   let p
 
   beforeEach(() => {
@@ -43,7 +43,7 @@ describe('Text Resizer - increase() - relative units and relative step', () => {
     p.style.fontSize = '1.2em'
   })
 
-  test('Text Resizer - increase text size  relative units (em)', () => {
+  test('Utility test - increase text size  relative units (em)', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '0.2em',
@@ -57,7 +57,7 @@ describe('Text Resizer - increase() - relative units and relative step', () => {
     expect(newPixelSize).toBeGreaterThan(beforePixelSize)
   })
 
-  test('Text Resizer - convert comma as decimal', () => {
+  test('Utility test - convert comma as decimal', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '0,2em',
@@ -71,7 +71,7 @@ describe('Text Resizer - increase() - relative units and relative step', () => {
     expect(newPixelSize).toBeGreaterThan(beforePixelSize)
   })
 
-  test('Text Resizer - handle step "out of bounds" for relative units', () => {
+  test('Utility test - handle step "out of bounds" for relative units', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '2',
@@ -86,7 +86,7 @@ describe('Text Resizer - increase() - relative units and relative step', () => {
   })
 })
 
-describe('Text Resizer - handle step "out of bounds" for px defaulting to 2px', () => {
+describe('Utility test - handle step "out of bounds" for px defaulting to 2px', () => {
   let p
 
   beforeEach(() => {
@@ -95,7 +95,7 @@ describe('Text Resizer - handle step "out of bounds" for px defaulting to 2px', 
     p.style.fontSize = '12px'
   })
 
-  test('Text Resizer - set default value for step to 2px if step < 1', () => {
+  test('Utility test - set default value for step to 2px if step < 1', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: 0.2,
@@ -108,7 +108,7 @@ describe('Text Resizer - handle step "out of bounds" for px defaulting to 2px', 
     expect(newSize).toBe('14px')
   })
 
-  test('Text Resizer - set default value for step to 2px if < 1, even if written as decimal', () => {
+  test('Utility test - set default value for step to 2px if < 1, even if written as decimal', () => {
     const resizer = createTextResizerController({
       selectors: ['#test'],
       step: '0.2',
